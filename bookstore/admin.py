@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BookStore
+from .models import BookStore, NewsLetter
 
 
 class BookStoreAdmin(admin.ModelAdmin):
@@ -9,4 +9,12 @@ class BookStoreAdmin(admin.ModelAdmin):
     list_editable=('description', 'availability')
 
 
+class NewsLetterAdmin(admin.ModelAdmin):
+    fields = ('title', 'description',)
+    list_display = ('title', 'description')
+    list_filter = ('title', 'description')
+    list_editable=('description',)
+
+
 admin.site.register(BookStore, BookStoreAdmin)
+admin.site.register(NewsLetter, NewsLetterAdmin)

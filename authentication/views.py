@@ -50,10 +50,10 @@ class IndexView(View):
             result = BookStore.objects.filter(
                 Q(title__icontains=query) |
                 Q(description__icontains=query)
-            )
+            ).order_by('-timestamp')
             all_books = result.filter(availability='available')
         else:
-            all_books = BookStore.objects.filter(availability='available')
+            all_books = BookStore.objects.filter(availability='available').order_by('-timestamp')
 
         return render(request, self.template_name, {'all_books': all_books,
                                                     }
@@ -107,7 +107,7 @@ class SignUpView(View):
             first_name = name[0].capitalize()
             last_name = ""
 
-        if not username and not email and not password and not confirm_password and not name:
+        if not username or not email or not password or not confirm_password or not name:
             messages.info(request, 'Please fill all the fields...')
             return render(request, self.template_name, {'email': email, 'name': name1,
          'username': username, 'password': password, 'confirm_password': confirm_password})
@@ -125,12 +125,12 @@ class SignUpView(View):
                 user = User.objects.create_user(username=username, email=email, password=password,
                                                 first_name=first_name, last_name=last_name)
 
-                group = Group.objects.get(name='users')
-                user.groups.add(group)
+                # group = Group.objects.get(name='users')
+                # user.groups.add(group)
                 user.save()
                 # profile = Profile(user=user)
                 # profile.save()
-                return redirect('authentication:login')
+                return redirect('authentication:index')
         else:
             messages.info(request, 'Not Maching')
             return render(request, self.template_name,{'email': email, 'name': name1, 'username': username})
