@@ -22,9 +22,10 @@ def subscription(request):
         Now we will not bother you further"
     if request.method == 'POST':
         profile = Profile.objects.get(user=request.user)
+        print("ihbijb", request.user.email)
         if request.user.profile.subscribed:
             profile.subscribed = False
-            send_mail(subject1, body1, 'shivamrawat829@gmail.com', [request.user.email, ])
+            send_mail(subject1, body1, 'shivamrawat829@gmail.com', [request.user.email,])
             profile.save()
         else:
             profile.subscribed = True

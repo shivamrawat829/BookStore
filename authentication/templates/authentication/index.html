@@ -44,10 +44,6 @@
           </li>
 
             <li class="nav-item hide-in-phone"  style="margin-left:20px">
-<!--                <form method="GET" action="">-->
-<!--                    <i class="material-icons">search</i>-->
-<!--                     <input name="q" class="form-control" type="text" placeholder="Search" aria-label="Search">-->
-<!--                </form>-->
             <form class="form" method="GET" action="">
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -71,83 +67,13 @@
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
             <h1>Book Store.</h1>
-            <h3>A Place where you can find the book you need...</h3>
+            <h3>A Place where you can find all the books you need...</h3>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-
-
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Create Channel</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-                <div class="modal-body">
-                    <form class="form" method="POST" action='add-channel'>
-                         {% csrf_token %}
-                        <div class="card-body">
-                            <div class="form-group bmd-form-group">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="title" placeholder="Title..." maxlength="30">
-                                </div>
-                            </div>
-
-                            <div class="form-group bmd-form-group">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="description" placeholder="Description...">
-                                </div>
-                            </div>
-
-                            <div class="form-group bmd-form-group">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="no_of_people" placeholder="No of People..." min="1" max="5">
-                                </div>
-                            </div>
-
-<!--                            <div class="form-group bmd-form-group">-->
-<!--                                <div class="input-group">-->
-<!--                                    <input type="select" name="users" placeholder="Users..." class="form-control">-->
-
-<!--                                </div>-->
-<!--                            </div>-->
-
-                          <div class="form-group bmd-form-group">
-<!--                            <label for="inputState">State</label>-->
-                            <div class="input-group">
-<!--                            <select id="inputState" name="occupation" class="form-control">-->
-<!--                              <option selected>Choose...</option>-->
-<!--                                {% for occupation in occupations %}-->
-<!--                              <option>{{occupation.occupation}}</option>-->
-<!--                                {% endfor %}-->
-<!--                            </select>-->
-                                 <select style="display: block !important" name="occupation" multiple data-style="bg-white rounded-pill px-4 py-3 shadow-sm " class="selectpicker w-100">
-                                 {% for occupation in occupations %}
-                              <option>{{occupation.occupation}}</option>
-                                {% endfor %}
-                            </select><!-- End -->
-
-                          </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Proceed</button>
-                    </form>
-                </div>
-<!--                <div class="modal-footer justify-content-center">-->
-<!--&lt;!&ndash;                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Proceed</a>&ndash;&gt;-->
-<!--                   <button type="submit" class="btn btn-primary">Proceed</button>-->
-<!--                </div>-->
-            </div>
-        </div>
-    </div>
-</div>
 
   <div class="main main-raised">
       <form class="form-inline" method="POST" action ="{% url 'authentication:subscription' %}">
@@ -177,7 +103,7 @@
             </div>
           </div>
           <div class="card-body">
-              <a href="#" class="card-link">{{book.title}}</a>
+
                 <p class="card-text">{{book.description}}</p>
           </div>
       </div>

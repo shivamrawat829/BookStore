@@ -150,4 +150,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'shivamrawat829@gmail.com'
-EMAIL_HOST_PASSWORD = 'Shivam@829'
+EMAIL_HOST_PASSWORD = "password"
+
+# FCM_DJANGO_SETTINGS = {
+#         "APP_VERBOSE_NAME": "FCM Django",
+#         "FCM_SERVER_KEY": "[]",
+#         "ONE_DEVICE_PER_USER": False,
+#         "DELETE_INACTIVE_DEVICES": False,
+# }
